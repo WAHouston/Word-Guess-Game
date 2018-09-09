@@ -42,10 +42,14 @@ window.onload = function(){
                 reset()
             }
             console.log(wrongLetters)
-        } else{
-            console.log(correct)
+        } else if(correct.indexOf("_") === -1){
+            reset()
+            numWins++
         }
+        console.log(correct)
     }
+
+
     
     document.addEventListener("keyup", function(event){
         letterCheck(event.key.toLowerCase())
