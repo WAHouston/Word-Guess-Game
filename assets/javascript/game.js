@@ -18,6 +18,13 @@ window.onload = function(){
         for (var i = 0; i < currentWord.length; i++){
             correct.push("_")
         }
+        console.log(correct)
+    }
+
+    var reset = function(){
+        wordSelect()
+        numGuesses = 10
+        wrongLetters = []
     }
 
     var letterCheck = function(guess){
@@ -30,12 +37,21 @@ window.onload = function(){
         }
         if (counter < 1 && wrongLetters.indexOf(guess) === -1){
             wrongLetters.push(guess)
+            numGuesses--
+            if (numGuesses < 1){
+                reset()
+            }
+            console.log(wrongLetters)
+        } else{
+            console.log(correct)
         }
     }
     
     document.addEventListener("keyup", function(event){
         letterCheck(event.key.toLowerCase())
     })
+
+    wordSelect()
 
 
 
