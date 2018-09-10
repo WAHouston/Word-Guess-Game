@@ -17,53 +17,52 @@ window.onload = function(){
         correct = []
         for (var i = 0; i < currentWord.length; i++){
             correct.push("_")
+            disCorrect.textContent += correct[i] + " "
         }
-        console.log(correct)
     }
 
     var reset = function(){
+        disCorrect.textContent = ""
         wordSelect()
         numGuesses = 10
         wrongLetters = []
+        disLettersGuessed.textContent = ""
+        disNumGuess.textContent = numGuesses
     }
 
     var letterCheck = function(guess){
+        if (guess.charCodeAt(0) < 97 || guess.charCodeAt(0) > 122 || guess.length > 1) {
+            return;
+        }
         var counter = 0
+        disCorrect.textContent = ""
         for (var i = 0; i < currentWord.length; i++){
             if (guess === currentWord[i]){
                 correct[i] = guess
                 counter++
             }
+            disCorrect.textContent += correct[i] + " "
         }
         if (counter < 1 && wrongLetters.indexOf(guess) === -1){
             wrongLetters.push(guess)
             numGuesses--
+            disNumGuess.textContent = numGuesses
+            disLettersGuessed.textContent += wrongLetters[wrongLetters.length - 1] + " "
             if (numGuesses < 1){
                 reset()
             }
-            console.log(wrongLetters)
         } else if(correct.indexOf("_") === -1){
             reset()
             numWins++
+            disWins.textContent = numWins
         }
-        console.log(correct)
     }
 
-
-    
+    disWins.textContent = numWins
+    reset()
+   
     document.addEventListener("keyup", function(event){
         letterCheck(event.key.toLowerCase())
     })
-
-    wordSelect()
-
-
-
-
-
-
-
-
-
 
 }
