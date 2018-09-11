@@ -1,0 +1,39 @@
+body{
+    background-image: url("http://3.bp.blogspot.com/-3WHlmXIo3gM/VQeHQXslZhI/AAAAAAAAAA4/upS5dyiD5wU/s1600/Eberron%2BKhorvaire%2BMap.jpg");
+    background-size: cover;
+}
+h1 {
+    text-align: center;
+    color: black;
+    font-size: 100px;
+    margin: 20px auto;
+    font-family: 'Parisienne', cursive;
+    background: #deb887aa;
+    width: 960px;
+    padding: 10px 0px 25px 0px;
+    border: 1px solid black;
+}
+
+section {
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 40px;
+    background: #deb887aa;
+    width: 960px;
+    margin: 40px auto;
+    border: 1px solid black;
+}
+
+.game {
+    margin: 10px 0px 10px 0px;
+    height: 1.5em;
+    line-height: 1.5em;
+}
+
+#wrong-letters {
+    color: red;
+}
+
+#reveal {
+    color: green;
+}
